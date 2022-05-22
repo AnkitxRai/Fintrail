@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
+  public navMenus : Array<string> = [
+    'Home', 'Skills', 'About Us', 'Services'
+  ]
+
   constructor(
     public router: Router
     ) { }
