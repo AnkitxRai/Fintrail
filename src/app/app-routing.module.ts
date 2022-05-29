@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
   },
+  {
+    path: 'subscribe',
+    loadChildren: () => import('./subscribe/subscribe.module').then(m => m.SubscribeModule),
+  },
 ];
 
 @NgModule({
