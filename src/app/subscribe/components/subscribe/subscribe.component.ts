@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticlesService } from 'src/app/services/articles.service';
+import { Observable } from 'rxjs';
+import { Article, ArticlesService } from 'src/app/services/articles.service';
 
 @Component({
   selector: 'app-subscribe',
@@ -7,6 +8,8 @@ import { ArticlesService } from 'src/app/services/articles.service';
   styleUrls: ['./subscribe.component.scss']
 })
 export class SubscribeComponent implements OnInit {
+
+  public articles$: Observable<Article[]>;
 
   constructor( private articleService: ArticlesService ) { }
 
