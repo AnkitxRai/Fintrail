@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UserGuard } from './guards/user/user.guard';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
     path: 'subscribe',
     loadChildren: () => import('./subscribe/subscribe.module').then(m => m.SubscribeModule),
   },
+  {
+    path: 'users',
+    loadChildren: () => import('./users/user.module').then(m => m.UserModule),
+    canActivate: [UserGuard]
+  }
 ];
 
 @NgModule({

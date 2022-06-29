@@ -1,7 +1,40 @@
-<form>
+<form [formGroup]="loginForm">
   <label>Enter first name</label><br>
-  <input type="text" name="firstname"><br>
+  <input type="text" formControlName="firstname" name="firstname"><br>
   <label>Enter last name</label><br>
-  <input type="text" name="lastname"><br>
+  <input type="text" formControlName="lastname" name="lastname"><br>
   <p><strong>Note:</strong>The default maximum cahracter lenght is 20.</p>
-</form>  
+
+ <br>
+
+ <div *ngFor="let countrydata of countryData; let i=index">
+  <label for="vehicle">{{countrydata.name}}</label><br>
+  <input type="checkbox" [value]="countrydata.value" (change)="selectedCheckboxes($event)" formControlName="country" id="vehicle" name="vehicle2" value="Car">
+ </div>
+
+  <input type="radio" formControlName="fav_language" id="html" name="fav_language" value="HTML">
+  <label for="html">HTML</label><br>
+  <input type="radio" formControlName="fav_language" id="css" name="fav_language" value="CSS">
+  <label for="css">CSS</label><br>
+  <input type="radio" formControlName="fav_language" id="javascript" name="fav_language" value="JavaScript">
+  <label for="javascript">JavaScript</label>
+  <br>
+
+  <br>
+  <label for="birthday">Birthday:</label>
+  <input type="date" formControlName="birthday" id="birthday" name="birthday">
+
+  <br>
+  <label for="myfile">Select a file:</label>
+  <input type="file" formControlName="file" id="myfile" name="myfile">
+  <br>
+
+  <label for="cars">Choose a car:</label>
+  <select id="cars" formControlName="cars_dropdown" name="cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="fiat">Fiat</option>
+  <option value="audi">Audi</option>
+</select>
+
+</form>
