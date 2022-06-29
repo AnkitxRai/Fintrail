@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
+import { UserStateService } from 'src/app/services/state/user-state.service';
 import { UserService } from 'src/app/services/users/user.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class UserComponent implements OnInit {
 
   public users: User[];
 
-  constructor(private userService: UserService) { }
+  constructor(private userStateService: UserStateService) { }
 
   ngOnInit(): void {
     this.list();
@@ -20,7 +21,7 @@ export class UserComponent implements OnInit {
   public list()
   {
     console.log('in comp')
-    this.users = this.userService.usersSnapshot();  // fetched all users and updated in state still not getting users here in the first time but getting at second time
+    this.users = this.userStateService.snapshot();
   }
 
 
