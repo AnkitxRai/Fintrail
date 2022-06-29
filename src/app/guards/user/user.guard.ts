@@ -21,9 +21,10 @@ export class UserGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return from(of([]))
-    .pipe(switchMap(() => this.userService.fetchUsers())
+    .pipe(switchMap(() =>
+      this.userService.fetchUsers())  // call apis in the guard that are 100% required to the state at init time. ( to provide bare minimum data to the state )
     )
-    .pipe(tap((users) => this.userStateService.setUsers(users)))
+    .pipe(tap((users) => this.userStateService.init(users)))
     .pipe(map((users) => users.length > 0));
   }
 }

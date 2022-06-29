@@ -20,8 +20,8 @@ export class UserComponent implements OnInit {
 
   public list()
   {
-    console.log('in comp')
-    this.users = this.userStateService.snapshot();
+    this.users = this.userStateService.snapshot().users;
+    // todo create post service and fetch posts and update it into userState.
   }
 
 
